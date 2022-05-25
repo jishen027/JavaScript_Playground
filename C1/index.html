@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>my website</h1>
+
+  <div id="banner">
+
+  </div>
+
+  <footer>
+    <p>footer</p>
+  </footer>
+
+  <script type="text/babel">
+    const Banner = () => {
+      const title = "Welcome to my website"
+      const subTitle = "this is a website for learning react"
+      const address = "https://www.baidu.com"
+
+      const handleClick = () => {
+        console.log("click!")
+      }
+
+      return (
+        // this is a comment
+        <div className="banner">
+          <h2>{title.toUpperCase()}</h2>
+          <p>{subTitle}</p>
+          <p>Today's date is : {new Date().toDateString()}</p>
+          <p>Random number : {Math.random() * 100}</p>
+          <a href={address}>Baidu.com</a><br/>
+          <button onClick={handleClick}>Click me</button>
+        </div>
+      )
+    }
+
+    // reander the component to the DOM
+    ReactDOM.render(<Banner />, document.querySelector('#banner'))
+  </script>
+</body>
+
+</html>
