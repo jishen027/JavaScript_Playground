@@ -49,3 +49,26 @@ console.log(...sortedCompaniesByName)
 // recude 
 const totalAges = ages.reduce((sum, age) => sum + age, 0)
 console.log(totalAges)
+
+
+// combine array methods by using chain rule
+const modifiedCompanies = companies
+  .filter(company => company.category === "IT")
+  .map(company => {
+    const size = 100
+    return {
+      ...company,
+      companySize: size
+    }
+  })
+console.log(...modifiedCompanies)
+
+
+const mapModifiedCompanies = companies.map(company => {
+  if (company.category === "IT") {
+    company = { ...company, companySize: 100 }
+  }
+  return company
+})
+
+console.log(...mapModifiedCompanies)
