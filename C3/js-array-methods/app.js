@@ -51,6 +51,8 @@ const totalAges = ages.reduce((sum, age) => sum + age, 0)
 console.log(totalAges)
 
 
+
+
 // combine array methods by using chain rule
 const modifiedCompanies = companies
   .filter(company => company.category === "IT")
@@ -72,3 +74,40 @@ const mapModifiedCompanies = companies.map(company => {
 })
 
 console.log(...mapModifiedCompanies)
+
+const h1 = document.createElement('h1')
+h1.innerText = "Hello World"
+h1.classList.add("title")
+
+const body = document.querySelector('body')
+body.appendChild(h1)
+
+
+
+
+
+export default function App() {
+  const [pokemonList, setPokemonList] = useState([])
+
+  const fetchPokemonList = async () => {
+    const list = await getPokemonList()
+    return list
+  }
+
+  useEffect(async () => {
+    const pokemons = await fetchPokemonList()
+    setPokemonList(pokemons)
+  })
+
+  return (
+    <div className="app">
+      <Select>
+        {
+          pokemonList.map(pokemon => (
+            <option value={pokemon.name} key={pokemon.id}>{pokemon.name}</option>
+          ))
+        }
+      </Select>
+    </div>
+  )
+}
